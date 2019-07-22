@@ -1,4 +1,8 @@
-
+@extends('layouts.master')
+@section('title')
+Time Page
+@endsection
+@section('content')
 <?php
     date_default_timezone_set('Asia/Ho_Chi_Minh');
 ?>
@@ -52,3 +56,4 @@ function showTime(){
 }
 </style>
 <span id="vnclock"></span>
+@endsection

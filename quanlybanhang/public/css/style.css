@@ -1,0 +1,15 @@
+#logo{
+    background: green;
+}
+#company-name{
+    background: rgb(2, 196, 255);
+}
+#sidebar{
+    background: red;
+}
+#content{
+    background: white;
+}
+#footer{
+    background: rgb(38, 0, 255);
+}

@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Curriculum Vitae</title>
-</head>
+@extends('layouts.master')
+@section('title')
+About Me
+@endsection
+@section('content')
 <body>
     <table>
         <tr>
@@ -57,4 +57,4 @@
         </tr>
     </table>
 </body>
-</html>
+@endsection
