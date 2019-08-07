@@ -79,3 +79,12 @@ Route::get('/backend/order_detail', function(){
     return view('backend.order_details.index')
         ->with('listOrder_details', $list);
 });
+//Route Backend
+Route::get('/admin/dashboard', 'Backend\PageController@dashboard')->name('backend.pages.dashboard');
+Route::get('/admin/product', 'Backend\ProductController@index')->name('backend.product.index');
+Route::get('/admin/customer', 'Backend\CustomerController@index')->name('backend.customer.index');
+Route::get('/admin/employee', 'Backend\EmployeeController@index')->name('backend.employee.index');
+Route::get('/admin/category', 'Backend\CategoryController@index')->name('backend.category.index');
+// Route thêm mới dữ liệu category
+Route::get('/admin/category/create', 'Backend\CategoryController@create')->name('backend.category.create'); 
+Route::post('/admin/category/store', 'Backend\CategoryController@store')->name('backend.category.store'); 

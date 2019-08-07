@@ -1,7 +1,16 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+@extends('backend.layouts.master')
+@section('title')
+Quản Trị - Khách Hàng
+@endsection
+@section('feature-title')
+Danh Sách Khách Hàng
+@endsection
+@section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<h1 align="center">Danh Sách Khách Hàng</h1>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <table border="1" id="example" class="display" style="width:100%">
     <thead>
         <tr style="background-color:rgb(94, 84, 84, 0.5);">
@@ -26,10 +35,11 @@
         @endforeach
     <tbody>
 </table>
-<script>
+<!-- <script>
 $(document).ready(function() {
-    $('#example').DataTable( {
-        "order": [[ 3, "desc" ]]
-    } );
-} );
-</script>
+    $('#example').DataTable();
+} ); 
+</script> -->
+{{ $users->links() }}
+@endsection
+

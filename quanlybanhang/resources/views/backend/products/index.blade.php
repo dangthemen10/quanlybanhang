@@ -1,8 +1,12 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<h1 align="center">Danh Sách Sản Phẩm</h1>
-<table border="1" id="example" class="display" style="width:100%">
+@extends('backend.layouts.master')
+@section('title')
+Quản Trị - Sản Phẩm
+@endsection
+@section('feature-title')
+Danh Sách Sản Phẩm
+@endsection
+@section('content')
+<table class="table table-bordered">
     <thead>
         <tr style="background-color:rgb(94, 84, 84, 0.5);">
             <th>Mã Sản Phẩm</th>
@@ -22,10 +26,6 @@
         @endforeach
     <tbody>
 </table>
-<script>
-$(document).ready(function() {
-    $('#example').DataTable( {
-        "order": [[ 3, "desc" ]]
-    } );
-} );
-</script>
+
+{{ $users->links() }}
+@endsection
