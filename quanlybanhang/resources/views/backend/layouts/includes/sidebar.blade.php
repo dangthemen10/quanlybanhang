@@ -27,6 +27,7 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
+      <!-- category -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories" aria-expanded="true" aria-controls="collapseCategories">
             <i class="fas fa-fw fa-cog"></i>
@@ -39,7 +40,23 @@
                 <a class="collapse-item" href="{{ route('backend.category.create') }}">Thêm mới</a>
             </div>
         </div>
-    </li>
+      </li>
+      <!-- end category -->
+      <!-- start supplier -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSuppliers" aria-expanded="true" aria-controls="collapseSuppliers">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Nhà Cung Cấp</span>
+        </a>
+        <div id="collapseSuppliers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Chức năng Nhà Cung Cấp:</h6>
+                <a class="collapse-item" href="{{ route('backend.supplier.index') }}">Danh sách Nhà Cung Cấp</a>
+                <a class="collapse-item" href="{{ route('backend.supplier.create') }}">Thêm mới</a>
+            </div>
+        </div>
+      </li>
+      <!-- end supplier -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>

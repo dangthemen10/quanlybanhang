@@ -6,9 +6,9 @@ Quản Trị - Sản Phẩm
 Danh Sách Sản Phẩm
 @endsection
 @section('content')
-<table class="table table-bordered">
+<table class="table table-hover table-bordered ">
     <thead>
-        <tr style="background-color:rgb(94, 84, 84, 0.5);">
+        <tr class="table-primary" >
             <th>Mã Sản Phẩm</th>
             <th>Tên Sản Phẩm</th>
             <th>Nhà Cung Cấp</th>

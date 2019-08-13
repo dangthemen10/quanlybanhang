@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CategoryCreateRequest;
 
 class CategoryController extends Controller
 {
@@ -38,13 +39,25 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryCreateRequest $request)
     {
         $category = new Category();
         $category->category_code = $request->category_code;
         $category->category_name = $request->category_name;
         $category->description = $request->description;
         $category->image = $request->image;
+        
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->image;
+            // Lưu tên hình vào column sp_hinh
+            $category->image = $file->getClientOriginalName();
+            
+            // Chép file vào thư mục "photos"
+            $fileSaved = $file->storeAs('public/uploads', $category->image);
+        }
+
         $category->save();
 
         return redirect()->route('backend.category.index');
@@ -69,7 +82,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id); //SELECT * from categories where id='id'
+        return view('backend.categories.edit')
+            ->with('category', $category);
     }
 
     /**
@@ -81,7 +96,26 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->category_code = $request->category_code;
+        $category->category_name = $request->category_name;
+        $category->description = $request->description;
+        $category->image = $request->image;
+        
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->image;
+            // Lưu tên hình vào column sp_hinh
+            $category->image = $file->getClientOriginalName();
+            
+            // Chép file vào thư mục "photos"
+            $fileSaved = $file->storeAs('public/uploads', $category->image);
+        }
+
+        $category->save();
+
+        return redirect()->route('backend.category.index');
     }
 
     /**
@@ -92,6 +126,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category= Category::find($id);
+        $category->delete();
+
+        return redirect()->route('backend.category.index');
     }
 }

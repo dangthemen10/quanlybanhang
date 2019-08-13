@@ -35,7 +35,9 @@ Route::get('/backend/categories', function(){
 
 Route::get('/backend/supplier', function(){
     $list = Supplier::all();
-    dd($list);
+    //dd($list);
+    return view('backend.suppliers.index')
+        ->with('listSupplier', $list);
 });
 
 
@@ -85,6 +87,15 @@ Route::get('/admin/product', 'Backend\ProductController@index')->name('backend.p
 Route::get('/admin/customer', 'Backend\CustomerController@index')->name('backend.customer.index');
 Route::get('/admin/employee', 'Backend\EmployeeController@index')->name('backend.employee.index');
 Route::get('/admin/category', 'Backend\CategoryController@index')->name('backend.category.index');
+Route::get('/admin/supplier', 'Backend\SupplierController@index')->name('backend.supplier.index');
 // Route thêm mới dữ liệu category
 Route::get('/admin/category/create', 'Backend\CategoryController@create')->name('backend.category.create'); 
 Route::post('/admin/category/store', 'Backend\CategoryController@store')->name('backend.category.store'); 
+Route::get('/admin/category/{id}/edit', 'Backend\CategoryController@edit')->name('backend.category.edit');
+Route::post('/admin/category/{id}/update', 'Backend\CategoryController@update')->name('backend.category.update');
+Route::delete('/admin/category/{id}', 'Backend\CategoryController@destroy')->name('backend.category.destroy');
+//Route of supplier  
+Route::get('/admin/supplier/create', 'Backend\SupplierController@create')->name('backend.supplier.create'); 
+Route::post('/admin/supplier/store', 'Backend\SupplierController@store')->name('backend.supplier.store'); 
+Route::get('/admin/supplier/{id}/edit', 'Backend\SupplierController@edit')->name('backend.supplier.edit');
+Route::post('/admin/supplier/{id}/update', 'Backend\SupplierController@update')->name('backend.supplier.update');  
