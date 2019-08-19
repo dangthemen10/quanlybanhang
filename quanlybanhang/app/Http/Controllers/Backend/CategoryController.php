@@ -8,6 +8,7 @@ use App\Category;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CategoryCreateRequest;
 
+
 class CategoryController extends Controller
 {
     /**
@@ -45,8 +46,9 @@ class CategoryController extends Controller
         $category->category_code = $request->category_code;
         $category->category_name = $request->category_name;
         $category->description = $request->description;
-        $category->image = $request->image;
-        
+        if(!empty($request->image)){
+            $category->image = $request->image;
+        }
 
         if($request->hasFile('image'))
         {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Supplier;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SupplierCreateRequest;
 
 class SupplierController extends Controller
 {
@@ -38,7 +39,7 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SupplierCreateRequest $request)
     {
         $supplier = new Supplier();
         $supplier->supplier_code = $request->supplier_code;
@@ -125,6 +126,9 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $supplier= Supplier::find($id);
+        $supplier->delete();
+
+        return redirect()->route('backend.supplier.index');
     }
 }

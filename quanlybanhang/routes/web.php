@@ -83,19 +83,29 @@ Route::get('/backend/order_detail', function(){
 });
 //Route Backend
 Route::get('/admin/dashboard', 'Backend\PageController@dashboard')->name('backend.pages.dashboard');
-Route::get('/admin/product', 'Backend\ProductController@index')->name('backend.product.index');
+
 Route::get('/admin/customer', 'Backend\CustomerController@index')->name('backend.customer.index');
 Route::get('/admin/employee', 'Backend\EmployeeController@index')->name('backend.employee.index');
-Route::get('/admin/category', 'Backend\CategoryController@index')->name('backend.category.index');
-Route::get('/admin/supplier', 'Backend\SupplierController@index')->name('backend.supplier.index');
+
+
 // Route thêm mới dữ liệu category
+Route::get('/admin/category', 'Backend\CategoryController@index')->name('backend.category.index');
 Route::get('/admin/category/create', 'Backend\CategoryController@create')->name('backend.category.create'); 
 Route::post('/admin/category/store', 'Backend\CategoryController@store')->name('backend.category.store'); 
 Route::get('/admin/category/{id}/edit', 'Backend\CategoryController@edit')->name('backend.category.edit');
 Route::post('/admin/category/{id}/update', 'Backend\CategoryController@update')->name('backend.category.update');
 Route::delete('/admin/category/{id}', 'Backend\CategoryController@destroy')->name('backend.category.destroy');
 //Route of supplier  
+Route::get('/admin/supplier', 'Backend\SupplierController@index')->name('backend.supplier.index');
 Route::get('/admin/supplier/create', 'Backend\SupplierController@create')->name('backend.supplier.create'); 
 Route::post('/admin/supplier/store', 'Backend\SupplierController@store')->name('backend.supplier.store'); 
 Route::get('/admin/supplier/{id}/edit', 'Backend\SupplierController@edit')->name('backend.supplier.edit');
-Route::post('/admin/supplier/{id}/update', 'Backend\SupplierController@update')->name('backend.supplier.update');  
+Route::post('/admin/supplier/{id}/update', 'Backend\SupplierController@update')->name('backend.supplier.update');
+Route::delete('/admin/supplier/{id}', 'Backend\SupplierController@destroy')->name('backend.supplier.destroy'); 
+//Route of product
+Route::get('/admin/product', 'Backend\ProductController@index')->name('backend.product.index');
+Route::get('/admin/product/create', 'Backend\ProductController@create')->name('backend.product.create');
+Route::post('/admin/product/store', 'Backend\ProductController@store')->name('backend.product.store'); 
+Route::get('/admin/product/{id}/edit', 'Backend\ProductController@edit')->name('backend.product.edit');
+Route::post('/admin/product/{id}/update', 'Backend\ProductController@update')->name('backend.product.update');
+Route::delete('/admin/product/{id}', 'Backend\ProductController@destroy')->name('backend.product.destroy'); 
