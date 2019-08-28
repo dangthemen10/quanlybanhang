@@ -89,7 +89,8 @@ Danh Sách Sản Phẩm
                     )
 
                     //submit form
-                    $('#frmDeleteProduct').submit();
+                    $(this).parent('#frmDeleteProduct').submit();
+                    //$('#frmDeleteProduct').submit();
                 }
                 })
         })

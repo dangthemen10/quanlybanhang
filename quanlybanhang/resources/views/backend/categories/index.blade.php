@@ -8,6 +8,7 @@ Danh Sách Loại Sản Phẩm
 @section('content')
 
 <a class="btn btn-primary" href="{{ route('backend.category.create') }}" >Thêm Mới</a>
+<a href="{{ route('backend.category.print') }}" class="btn btn-success">In danh sách</a>
 <table  class="table table-bordered table-hover">
     <thead>
         <tr class="table-success" style="text-align: center;">
